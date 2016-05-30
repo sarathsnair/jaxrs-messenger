@@ -11,6 +11,12 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
+/*Different methods for accessing Params values
+ * @MatrixParam, @HeaderParam and @CookieParam
+ * @Context is used to get all the details of the current URL and Headers - We can get the required data such as 
+ * QueryParams and HeaderInfo using getters of the class
+ * */
+
 @Path("/injectdemo")
 @Consumes(MediaType.TEXT_PLAIN)
 @Produces(MediaType.TEXT_PLAIN)

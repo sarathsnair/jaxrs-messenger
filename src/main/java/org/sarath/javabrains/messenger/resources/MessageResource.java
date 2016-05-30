@@ -9,6 +9,16 @@ import org.sarath.javabrains.messenger.model.Message;
 import org.sarath.javabrains.messenger.resources.beans.MessageFilterBean;
 import org.sarath.javabrains.messenger.service.MessageService;
 
+/* Message Resource
+ * ****************
+ * Consumes - JSON, Response - JSON
+ * 
+ * @BeanParam is used to wrap the different @Params such as QueryParams in a specific class and
+ * access those from MessageFilterBean class
+ * 
+ * 
+ * */
+
 @Path("/messages")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -17,7 +27,7 @@ public class MessageResource {
 	MessageService messageService = new MessageService();
 
 	@GET
-	public List<Message> getMessages(@BeanParam MessageFilterBean filterBean) {
+	public List<Message> getMessages(@BeanParam MessageFilterBean filterBean) { 
 		if (filterBean.getYear() > 0) {
 			return messageService.getAllMessageForYear(filterBean.getYear());
 		}

@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+/*Profile Model*/
+
 @XmlRootElement
 public class Profile {
 	private long id;

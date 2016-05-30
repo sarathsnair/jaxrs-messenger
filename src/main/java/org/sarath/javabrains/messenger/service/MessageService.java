@@ -8,7 +8,13 @@ import java.util.Map;
 import org.sarath.javabrains.messenger.database.DatabaseClass;
 import org.sarath.javabrains.messenger.model.Message;
 
-public class MessageService {
+/* MessageService - All the services to the MessageResource
+ * ********************************************************
+ */
+
+public class MessageService { 
+	
+	/* Getting the current messages from the Database - currently we are not using any db, just hardcoding values */
 	private Map<Long, Message> messages = DatabaseClass.getMessages();
 
 	public MessageService() {

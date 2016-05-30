@@ -7,8 +7,13 @@ import java.util.Map;
 import org.sarath.javabrains.messenger.database.DatabaseClass;
 import org.sarath.javabrains.messenger.model.Profile;
 
-public class ProfileService {
+/* ProfileService
+ * All the services for ProfileResource
+ * */
 
+public class ProfileService {
+	
+	/* Getting the profile data from the db */
 	private Map<String, Profile> profiles = DatabaseClass.getProfiles();
 
 	public ProfileService() {

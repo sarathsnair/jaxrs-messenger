@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+/* Message Model*/
+
 @XmlRootElement
 public class Message {
 	private long id;

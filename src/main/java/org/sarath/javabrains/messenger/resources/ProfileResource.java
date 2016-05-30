@@ -15,6 +15,14 @@ import javax.ws.rs.core.MediaType;
 import org.sarath.javabrains.messenger.model.Profile;
 import org.sarath.javabrains.messenger.service.ProfileService;
 
+/* ProfileResource
+ * ***************
+ * 
+ * Consumes and Returns JSON
+ * 
+ * ProfileService class provides different services on Profiles.
+ * */
+
 @Path("/profiles")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
