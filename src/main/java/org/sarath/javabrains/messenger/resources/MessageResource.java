@@ -6,6 +6,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 import org.sarath.javabrains.messenger.model.Message;
+import org.sarath.javabrains.messenger.resources.beans.MessageFilterBean;
 import org.sarath.javabrains.messenger.service.MessageService;
 
 @Path("/messages")
@@ -16,13 +17,12 @@ public class MessageResource {
 	MessageService messageService = new MessageService();
 
 	@GET
-	public List<Message> getMessages(@QueryParam("year") int year, @QueryParam("start") int start,
-			@QueryParam("size") int size) {
-		if (year > 0) {
-			return messageService.getAllMessageForYear(year);
+	public List<Message> getMessages(@BeanParam MessageFilterBean filterBean) {
+		if (filterBean.getYear() > 0) {
+			return messageService.getAllMessageForYear(filterBean.getYear());
 		}
-		if (start >= 0 && size > 0) {
-			return messageService.getAllMessagesPaginated(start, size);
+		if (filterBean.getStart() >= 0 && filterBean.getSize() > 0) {
+			return messageService.getAllMessagesPaginated(filterBean.getStart(), filterBean.getSize());
 		}
 		return messageService.getAllMessages();
 	}
