@@ -1,11 +1,15 @@
 package org.sarath.javabrains.messenger.resources;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriInfo;
 
 import org.sarath.javabrains.messenger.model.Message;
 import org.sarath.javabrains.messenger.resources.beans.MessageFilterBean;
@@ -46,12 +50,13 @@ public class MessageResource {
 	}
 
 	@POST
-	public Response addMessage(Message message) {		/* Returns generic response object which adds the specific status code (201-CREATED) */
+	public Response addMessage(Message message, @Context UriInfo uriInfo) {		/* Returns generic response object which adds the specific status code (201-CREATED) */
 		Message newMessage = messageService.addMessage(message);
-		return Response.status(Status.CREATED)
+		String newId = String.valueOf(newMessage.getId());
+		URI url = uriInfo.getAbsolutePathBuilder().path(newId).build();
+		return Response.created(url) /* Here we are sending the location along with the response. Previously it was - return Response.status(Status.CREATED).entity(newMessage).build();*/
 				.entity(newMessage)
 				.build();
-		
 		//return messageService.addMessage(message);
 	}
 
