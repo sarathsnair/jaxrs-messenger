@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /* Message Model*/
 
@@ -34,6 +35,7 @@ public class Message {
 		this.id = id;
 	}
 
+	@XmlTransient
 	public Map<Long, Comment> getComments() {
 		return comments;
 	}
