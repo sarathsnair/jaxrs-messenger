@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.sarath.javabrains.messenger.model.Message;
 import org.sarath.javabrains.messenger.resources.beans.MessageFilterBean;
@@ -44,8 +46,13 @@ public class MessageResource {
 	}
 
 	@POST
-	public Message addMessage(Message message) {
-		return messageService.addMessage(message);
+	public Response addMessage(Message message) {		/* Returns generic response object which adds the specific status code (201-CREATED) */
+		Message newMessage = messageService.addMessage(message);
+		return Response.status(Status.CREATED)
+				.entity(newMessage)
+				.build();
+		
+		//return messageService.addMessage(message);
 	}
 
 	@PUT
