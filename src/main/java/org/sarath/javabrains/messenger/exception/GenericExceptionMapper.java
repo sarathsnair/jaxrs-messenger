@@ -8,7 +8,7 @@ import javax.ws.rs.ext.Provider;
 
 import org.sarath.javabrains.messenger.model.ErrorMessage;
 
-@Provider
+ /* @Provider is removed to overcome this GenericException */
 public class GenericExceptionMapper implements ExceptionMapper<Throwable>{
 
 	@Override
