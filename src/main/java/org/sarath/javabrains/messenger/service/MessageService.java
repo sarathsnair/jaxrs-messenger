@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.sarath.javabrains.messenger.database.DatabaseClass;
+import org.sarath.javabrains.messenger.exception.DataNotFoundException;
 import org.sarath.javabrains.messenger.model.Message;
 
 /* MessageService - All the services to the MessageResource
@@ -46,7 +47,11 @@ public class MessageService {
 	}
 
 	public Message getMessage(long id) {
-		return messages.get(id);
+		Message message = messages.get(id);
+		if(message==null){
+			throw new DataNotFoundException("Message id "+id+" is not found");
+		}
+		return message;
 	}
 
 	public Message addMessage(Message message) {
