@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import org.sarath.javabrains.messenger.model.Comment;
 import org.sarath.javabrains.messenger.service.CommentService;
 
+@Path("/")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class CommentResource {
