@@ -50,7 +50,7 @@ public class MessageResource {
 	}
 
 	@POST
-	public Response addMessage(Message message, @Context UriInfo uriInfo) {		/* Returns generic response object which adds the specific status code (201-CREATED) */
+	public Response addMessage(Message message, @Context UriInfo uriInfo)  {		/* Returns generic response object which adds the specific status code (201-CREATED) */
 		Message newMessage = messageService.addMessage(message);
 		String newId = String.valueOf(newMessage.getId());
 		URI url = uriInfo.getAbsolutePathBuilder().path(newId).build();
